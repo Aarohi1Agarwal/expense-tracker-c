@@ -18,6 +18,14 @@ void addExpense() {
     printf("\nEnter Amount: ");
     scanf("%f",&e.amount);
 
+    if(e.amount<=0){
+    printf(
+    "\nInvalid amount\n"
+    );
+    fclose(fp);
+    return;
+    }
+
     printf("Enter Category: ");
     scanf("%s",e.category);
 
@@ -62,6 +70,8 @@ void viewExpenses() {
         ) != EOF
     )
     {
+        printf("\n-----------------------\n");
+
         printf(
             "\nAmount: %.2f",
             e.amount
@@ -145,6 +155,7 @@ void monthlySummary() {
     FILE *fp;
 
     float total = 0;
+    int count =0;
 
     fp = fopen("expenses.txt","r");
 
@@ -164,11 +175,14 @@ void monthlySummary() {
     )
     {
         total += e.amount;
+        count++;
     }
 
     fclose(fp);
 
     printf("\n===== SUMMARY =====\n");
+
+    printf("\nTotal Expenses: %d",count);
 
     printf(
         "\nTotal Spending: %.2f\n",

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "expense.h"
 
 int main() {
 
@@ -19,7 +20,7 @@ int main() {
         switch(choice) {
 
             case 1:
-                printf("\nAdd Expense selected\n");
+                addExpense();
                 break;
 
             case 2:

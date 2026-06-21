@@ -24,12 +24,14 @@ This project allows users to store and manage expenses directly from the termina
 
 ## Project Structure
 
+```text
 expense-tracker/
 ├── main.c
 ├── expense.c
 ├── expense.h
 ├── expenses.txt
-├── README.md
+└── README.md
+```
 
 ## How to Run
 

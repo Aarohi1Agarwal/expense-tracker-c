@@ -24,7 +24,7 @@ int main() {
                 break;
 
             case 2:
-                printf("\nView Expenses selected\n");
+                viewExpenses();
                 break;
 
             case 3:

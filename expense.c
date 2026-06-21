@@ -35,3 +35,48 @@ void addExpense() {
 
     printf("\nExpense Saved Successfully!\n");
 }
+
+void viewExpenses() {
+
+    Expense e;
+
+    FILE *fp;
+
+    fp = fopen("expenses.txt","r");
+
+    if(fp==NULL){
+        printf("\nNo expenses found.\n");
+        return;
+    }
+
+    printf("\n===== EXPENSE HISTORY =====\n");
+
+    while(
+        fscanf(
+            fp,
+            "%f %s %s",
+            &e.amount,
+            e.category,
+            e.date
+        ) != EOF
+    )
+    {
+        printf(
+            "\nAmount: %.2f",
+            e.amount
+        );
+
+        printf(
+            "\nCategory: %s",
+            e.category
+        );
+
+        printf(
+            "\nDate: %s\n",
+            e.date
+        );
+    }
+
+    fclose(fp);
+
+}

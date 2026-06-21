@@ -12,7 +12,8 @@ int main() {
         printf("1. Add Expense\n");
         printf("2. View Expenses\n");
         printf("3. Search Expense\n");
-        printf("4. Exit\n");
+        printf("4. Monthly Summary\n");
+        printf("5. Exit\n");
 
         printf("\nEnter choice: ");
         scanf("%d",&choice);
@@ -32,6 +33,10 @@ int main() {
                 break;
 
             case 4:
+                monthlySummary();
+                break;
+
+            case 5:
                 printf("\nExiting...\n");
                 return 0;
 

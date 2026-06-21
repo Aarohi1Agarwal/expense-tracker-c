@@ -80,3 +80,41 @@ void viewExpenses() {
     fclose(fp);
 
 }
+
+void monthlySummary() {
+
+    Expense e;
+
+    FILE *fp;
+
+    float total = 0;
+
+    fp = fopen("expenses.txt","r");
+
+    if(fp==NULL){
+        printf("\nNo data found.\n");
+        return;
+    }
+
+    while(
+        fscanf(
+            fp,
+            "%f %s %s",
+            &e.amount,
+            e.category,
+            e.date
+        ) != EOF
+    )
+    {
+        total += e.amount;
+    }
+
+    fclose(fp);
+
+    printf("\n===== SUMMARY =====\n");
+
+    printf(
+        "\nTotal Spending: %.2f\n",
+        total
+    );
+}

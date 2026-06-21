@@ -5,6 +5,15 @@ void addExpense() {
 
     Expense e;
 
+    FILE *fp;
+
+    fp = fopen("expenses.txt","a");
+
+    if(fp==NULL){
+        printf("Error opening file\n");
+        return;
+    }
+
     printf("\nEnter Amount: ");
     scanf("%f",&e.amount);
 
@@ -14,12 +23,15 @@ void addExpense() {
     printf("Enter Date (DD-MM-YYYY): ");
     scanf("%s",e.date);
 
-    printf("\nExpense Saved!\n");
+    fprintf(
+        fp,
+        "%.2f %s %s\n",
+        e.amount,
+        e.category,
+        e.date
+    );
 
-    printf("\n----- DETAILS -----\n");
+    fclose(fp);
 
-    printf("Amount: %.2f\n",e.amount);
-    printf("Category: %s\n",e.category);
-    printf("Date: %s\n",e.date);
-
+    printf("\nExpense Saved Successfully!\n");
 }

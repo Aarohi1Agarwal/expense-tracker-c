@@ -11,6 +11,7 @@ typedef struct {
 
 void addExpense();
 void viewExpenses();
+void searchExpense();
 void monthlySummary();
 
 #endif

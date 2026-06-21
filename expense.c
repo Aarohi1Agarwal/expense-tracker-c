@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "expense.h"
+#include <string.h>
 
 void addExpense() {
 
@@ -76,6 +77,62 @@ void viewExpenses() {
             e.date
         );
     }
+
+    fclose(fp);
+
+}
+
+void searchExpense() {
+
+    Expense e;
+
+    FILE *fp;
+
+    char search[30];
+
+    int found = 0;
+
+    fp = fopen("expenses.txt","r");
+
+    if(fp==NULL){
+        printf("\nNo expenses found.\n");
+        return;
+    }
+
+    printf("\nEnter Category: ");
+    scanf("%s",search);
+
+    while(
+        fscanf(
+            fp,
+            "%f %s %s",
+            &e.amount,
+            e.category,
+            e.date
+        ) != EOF
+    )
+    {
+
+        if(strcmp(search,e.category)==0)
+        {
+
+            printf(
+                "\nAmount: %.2f",
+                e.amount
+            );
+
+            printf(
+                "\nDate: %s\n",
+                e.date);
+
+            found = 1;
+
+        }
+
+    }
+
+    if(found==0)
+        printf("\nNo matching expenses.\n");
 
     fclose(fp);
 

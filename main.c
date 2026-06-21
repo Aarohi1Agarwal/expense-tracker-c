@@ -29,7 +29,7 @@ int main() {
                 break;
 
             case 3:
-                printf("\nSearch Expense selected\n");
+                searchExpense();
                 break;
 
             case 4:
